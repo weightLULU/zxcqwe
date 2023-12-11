@@ -1,0 +1,84 @@
+/* Общие стили */
+.header__container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between; /* Используем пространство между элементами */
+    align-items: center;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Левая часть навигации */
+.nav__left {
+    display: flex;
+    align-items: center;
+}
+
+.left__links {
+    margin-right: 30px;
+}
+
+/* Центральная часть навигации */
+.nav__center {
+    height: 40px;
+    width: 300px;
+    background-image: url(../img/80776.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    align-self: flex-start;
+
+    /* Дополнительные стили при уменьшении экрана */
+    @media (max-width: 768px) {
+        width: 100%; /* Занимаем всю ширину при уменьшении экрана */
+        margin-bottom: 10px; /* Добавляем небольшой отступ между элементами */
+    }
+}
+
+/* Правая часть навигации */
+.nav__right {
+    display: flex;
+    align-items: center;
+}
+
+.right__signin,
+.right__btn {
+    padding: 10px;
+    padding-left: 25px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 1em;
+    margin-right: 30px;
+}
+
+/* Дополнительные стили для мобильной версии */
+@media (max-width: 768px) {
+    .nav__list {
+        flex-direction: column; /* Одна колонка для мобильной версии */
+        align-items: stretch; /* Вытягиваем элементы на всю ширину */
+    }
+
+    .nav__right {
+        margin-left: auto; /* Перемещаем правую часть в конец строки */
+    }
+
+    .nav__center {
+        width: 100%; /* Занимаем всю ширину при уменьшении экрана */
+        margin-bottom: 10px; /* Добавляем небольшой отступ между элементами */
+    }
+
+    .right__signin,
+    .right__btn {
+        margin-right: 0; /* Убираем правый отступ для элементов в правой части */
+        margin-bottom: 10px; /* Добавляем отступ снизу между элементами */
+    }
+}

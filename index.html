@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Balance - магазин кроссовок!</title>
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/media.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <button aria-label="Открыть меню" class="btn-reset header__burger">
+                <span class="header__burger-line"></span>
+            </button>
+            <nav class="header__nav">
+                <div class="nav__left">
+                    <a  class="left__links" onclick="openSupportModal()">Техническая поддержка</a>
+                    <a  class="left__links" onclick="openContactsModal()">Контакты</a>
+                    <!-- Модальное окно контактов -->
+                    <div id="contactsModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeContactsModal()">&times;</span>
+                            <h2>Контакты</h2>
+                            <p>Телефон: +7 (777) 777-7777</p>
+                            <p>Email: viktorn924@gmail.com</p>
+                            <div class="social__links">
+                                <a href="https://vk.com/nikitinkawaii" target="_blank">
+                                    <img src="./img/vk_3488336.png" alt="Vk.com">
+                                </a>
+                                <a href="#" target="_blank">
+                                    <img src="./img/telegram_3488437.png" alt="telegram">
+                                </a>
+                                <a href="#" target="_blank">
+                                    <img src="./img/youtube_3488303.png" alt="YT">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="nav__search">
+                        <button class="btn-reset search__btn" onclick="searchProducts()">
+                            <svg width="23" height="22" viewBox="0 0 23 22" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="6.8678" height="1.71695"
+                                    transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)"
+                                    fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.0967 18C7.53016 18 3.99668 14.3229 3.99668 10C3.99668 5.67715 7.53016 2 12.0967 2C16.6632 2 20.1967 5.67715 20.1967 10C20.1967 14.3229 16.6632 18 12.0967 18ZM12.0967 20C6.57383 20 2.09668 15.5228 2.09668 10C2.09668 4.47715 6.57383 0 12.0967 0C17.6195 0 22.0967 4.47715 22.0967 10C22.0967 15.5228 17.6195 20 12.0967 20Z"
+                                    fill="black" />
+                            </svg>
+
+                        </button>
+                        <datalist id="productsList">
+                            <option value="New Balance WL574NB" data-url="./shoes.html" data-img="./img/1.jpg"></option>
+                            <option value="New Balance XC72" data-img="./img/2.jpg">
+                            <option value="New Balance 997" data-img="./img/3.jpg">
+                            <option value="New Balance MR530" data-img="./img/4.jpg">
+                            <option value="New Balance Arishi V3" data-img="./img/5.jpg">
+                        </datalist>
+                        <input type="text" id="searchInput" list="searchResults" placeholder="Поиск" autocomplete="off">
+                        <div id="searchResults" class="search__results"></div>
+                    </div>
+
+                </div>
+                <a href="./index.html" class="nav__center"></a>
+                <div class="nav__right">
+                    <button class="btn-reset right__btn" onclick="openCart()">Корзина</button>
+                </div>
+            </nav>
+            <button class="btn-reset right__btn-media" onclick="openCart()"></button>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container hero__container">
+                <h1 class="hero__title title">
+                    New Balance - магазин кроссовок
+                </h1>
+                <p class="hero__descr">
+                    New Balance - это мировая компания, специализирующаяся на производстве спортивной обуви и одежды.
+                    Она известна своим качеством и инновациями в индустрии спортивных товаров. Компания была основана в
+                    1906
+                    году и с тех пор завоевала популярность благодаря своим уникальным технологиям и дизайну.
+                </p>
+            </div>
+        </section>
+        <section class="cards">
+            <div class="container cards__container">
+                <div class="cards__product" id="product1">
+                    <a href="./shoes.html" onclick="return false;">
+                        <img src="./img/1.jpg" alt="" class="product__img" onclick="redirectToShoesPage()">
+                    </a>
+                    <h2 class="product__title title">New Balance WL574NB</h2>
+                    <p class="product__descr">New Balance 574 еще в 80-х зарекомендовала себя как универсальная пара для
+                        ежедневного комфорта и с тех пор остается одной из самых популярных моделей New Balance.</p>
+                    <p class="product__price">Цена: $99.99</p>
+                    <button class="btn-reset product__btn" data-product="New Balance WL574NB"
+                        onclick="addToCart('New Balance WL574NB', 99.99, event, 1)">В корзину</button>
+                </div>
+                <div class="cards__product" id="product2">
+                    <img src="./img/2.jpg" alt="" class="product__img">
+                    <h2 class="product__title title">New Balance XC72</h2>
+                    <p class="product__descr">Кроссовки New Balance XC72, созданные на пересечении прошлого и будущего,
+                        спорта и эстетики 70-х, в этот раз созданы в концепции переосмысления классики New Balance и ее
+                        актуальности в современных образах</p>
+                    <p class="product__price">Цена: $129.99</p>
+                    <button class="btn-reset product__btn" data-product="New Balance XC72" onclick="addToCart('New Balance XC72', 129.99, event, 2)">В
+                        корзину</button>
+                        
+                </div>
+
+                <div class="cards__product" id="product3">
+                    <img src="./img/3.jpg" alt="" class="product__img">
+                    <h2 class="product__title title">New Balance 997</h2>
+                    <p class="product__descr">Универсальная классика New Balance 997 – это кроссовки на все случаи
+                        жизни. Удобная колодка позволяет их носить не снимая целый день.</p>
+                    <p class="product__price">Цена: $89.99</p>
+                    <button class="btn-reset product__btn" data-product="New Balance 997" onclick="addToCart('New Balance 997', 89.99, event, 3)">В
+                        корзину</button>
+                </div>
+
+                <div class="cards__product" id="product4">
+                    <img src="./img/4.jpg" alt="" class="product__img">
+                    <h2 class="product__title title">New Balance MR530</h2>
+                    <p class="product__descr">Кроссовки New Balance MR530 - это спортивная обувь с современным дизайном
+                        и рядом технических характеристик, которые обеспечивают комфорт, защиту и высокую
+                        производительность.</p>
+                    <p class="product__price">Цена: $109.99</p>
+                    <button class="btn-reset product__btn" data-product="New Balance MR530" onclick="addToCart('New Balance MR530', 109.99, event, 4)">В
+                        корзину</button>
+                </div>
+
+                <div class="cards__product" id="product5">
+                    <img src="./img/5.jpg" alt="" class="product__img">
+                    <h2 class="product__title title">New Balance Arishi V3</h2>
+                    <p class="product__descr">Эти кроссовки идеально подходят для асфальта и бетона, мокрого или сухого,
+                        благодаря резиновой подошве, которая гарантирует отличное сцепление и сцепление.</p>
+                    <p class="product__price">Цена: $79.99</p>
+                    <button class="btn-reset product__btn" data-product="New Balance Arishi V3"
+                        onclick="addToCart('New Balance Arishi V3', 79.99, event, 5)">В корзину</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!-- Модальное окно корзины -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Корзина</h2>
+            <label for="name" style="display: block; margin-bottom: 10px;">Имя:</label>
+            <input type="text" id="name" placeholder="Введите ваше имя" style="display: block; margin-bottom: 10px;">
+
+            <label for="phone" style="display: block; margin-bottom: 10px;">Номер телефона:</label>
+            <input type="tel" id="phone" placeholder="Введите номер телефона"
+                style="display: block; margin-bottom: 10px;">
+
+            <label for="email" style="display: block; margin-bottom: 10px;">Email:</label>
+            <input type="email" id="email" placeholder="Введите ваш email" style="display: block; margin-bottom: 10px;">
+            <ul id="cartItems"></ul>
+            <p id="totalAmount">Сумма заказа: $0.00</p>
+            <label style="display: block; margin-bottom: 10px;">
+                <input type="radio" name="paymentMethod" value="cash" checked>
+                Оплата наличными
+            </label>
+            <label style="display: block; margin-bottom: 10px;">
+                <input type="radio" name="paymentMethod" value="card">
+                Оплата картой при получении
+            </label>
+            <label style="display: block; margin-bottom: 10px;">
+                <input type="radio" name="paymentMethod" value="online">
+                Онлайн оплата картой
+            </label>
+
+            <button id="checkoutButton" class="checkout-button" onclick="checkout()">Оформить заказ</button>
+        </div>
+    </div>
+    <!-- Модальное окно тех.под -->
+    <div id="supportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSupportModal()">&times;</span>
+            <h2>Техническая поддержка</h2>
+            <form id="supportForm" onsubmit="submitSupportForm(event)">
+                <label for="userName" class="form-label">Имя:</label>
+                <input type="text" id="userName" class="form-input" placeholder="Введите ваше имя" required>
+    
+                <label for="userEmail" class="form-label">Email:</label>
+                <input type="email" id="userEmail" class="form-input" placeholder="Введите ваш email" required>
+    
+                <label for="issueType" class="form-label">Выберите проблему:</label>
+                <select id="issueType" class="form-input" required>
+                    <option value="delivery">Проблема с доставкой</option>
+                    <option value="product">Проблема с товаром</option>
+                    <option value="website">Проблема на сайте</option>
+                    <option value="payment">Проблема с оплатой</option>
+                </select>
+    
+                <label for="issueDescription" class="form-label">Описание проблемы:</label>
+                <textarea id="issueDescription" class="form-input" rows="4" placeholder="Опишите вашу проблему" required></textarea>
+    
+                <button type="submit" class="form-button">Отправить</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./script/main.js"></script>
+    <script src="./script/support.js"></script>
+    <script src="./script/cart.js"></script>
+    <script src="./script/search.js"></script>
+    <script src="./script/contact.js"></script>
+</body>
+
+</html>
